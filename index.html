@@ -41,31 +41,40 @@
       font-size: 1rem;
       opacity: 0.8;
     }
+    .footer a {
+      color: #00d2ff;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #66fcf1;
+    }
   </style>
 </head>
 <body>
   <h1>Seliware Resellers</h1>
   <div id="reseller-container"></div>
   <div class="footer">
-    After purchasing a seliware key, you can redeem it at <strong>bitdancer.pro</strong> or <strong>seliware.com</strong>.
+    After purchasing a seliware key, you can redeem it at 
+    <a href="https://bitdancer.pro" target="_blank">bitdancer.pro</a> or 
+    <a href="https://seliware.com" target="_blank">seliware.com</a>.
   </div>
 
   <script>
     const resellers = [
-      { name: "Daniska111/Kamlin via Funpay", price: "$14.74 USD / €12.75 per Month", methods: "Card" },
-      { name: "Vivianware", price: "$10 USD/Month", methods: "Credit & Debit Card, CS2 Skins, TF2 Keys, Giftcard, Paysafecard, Crypto, Stripe (+$1), PayPal, Vietnam Payment" },
-      { name: "infinitycheats", price: "$10 USD/Month", methods: "Credit & Debit Card, PayPal, Crypto" },
-      { name: "thunderkeys", price: "$10 USD/Month or $4 USD/Week", methods: "Debit & Credit Card, Cash App, Google Pay, Apple Pay, Link, Paypal, Crypto" },
-      { name: "CheapKeys.cc", price: "$10 USD/Month or $4 USD/Week", methods: "Crypto, Credit/Debit Card, PayPal, CashApp, Venmo, Rewards (100 pts = $1 USD)" },
-      { name: "Wyv.gg", price: "$10 USD/Month", methods: "Credit & Debit Card, Google Pay, PayPal, Crypto" },
-      { name: "RobloxCheatz", price: "$10 USD/Month", methods: "Credit & Debit Card, Robux, Crypto, Funpay" },
-      { name: "Turbokeyz", price: "$10 USD/Month or $4 USD/Week", methods: "Paypal, CashApp, Venmo" },
-      { name: "yukstore", price: "250,000 ₫/Month or 100,000 ₫/Week", methods: "Momo, Card VN, Mbbank, Thesieure, Crypto" },
-      { name: "Expresskeys", price: "$10 USD/Month or $3.99 USD/Week", methods: "Credit & Debit Card, PayPal, CashApp, Crypto, Robux" },
-      { name: "CheapKeyz", price: "$10 USD/Month or $4 USD/Week", methods: "Crypto, Credit and Debit card, PayPal" },
-      { name: "Solarkeys", price: "$10 USD/Month or $4 USD/Week", methods: "Credit & Debit Card, PayPal, Crypto, CashApp, Robux" },
-      { name: "Haise", price: "$10 USD/Month or $4 USD/Week", methods: "Crypto, Credit and Debit card" },
-      { name: "Shyun", price: "250,000 ₫/Month or 100,000 ₫/Week", methods: "Open shop for more info" }
+      { name: "Daniska111/Kamlin via Funpay", price: "$14.74 USD / €12.75 per Month", methods: "Card", url: "https://funpay.com/en/lots/offer?id=32977828" },
+      { name: "Vivianware", price: "$10 USD/Month", methods: "Multiple methods", url: "https://vivianware.com/product/seliware-roblox/" },
+      { name: "infinitycheats", price: "$10 USD/Month", methods: "Credit & Debit Card, PayPal, Crypto", url: "https://infinitycheats.gg/" },
+      { name: "thunderkeys", price: "$10 USD/Month or $4 USD/Week", methods: "Many methods", url: "https://thunderkeys.mysellauth.com/" },
+      { name: "CheapKeys.cc", price: "$10 USD/Month", methods: "Crypto, PayPal", url: "https://cheapkeys.cc/products" },
+      { name: "Wyv.gg", price: "$10 USD/Month", methods: "Card, Google Pay, PayPal", url: "https://wyv.gg/product/seliware-executor/" },
+      { name: "RobloxCheatz", price: "$10 USD/Month", methods: "Robux, Funpay", url: "https://robloxcheatz.com/product/d7a3d96a-2497-43e5-b8b0-c4046a63b0da" },
+      { name: "Turbokeyz", price: "$10 USD/Month", methods: "Paypal, CashApp", url: "https://turbokeyz.shop/product/seliware" },
+      { name: "yukstore", price: "250,000 ₫/Month", methods: "VN payments", url: "https://yukstore.com/" },
+      { name: "Expresskeys", price: "$10 USD/Month", methods: "PayPal, Robux", url: "https://expresskeys.store/" },
+      { name: "CheapKeyz", price: "$10 USD/Month", methods: "Crypto, Card, PayPal", url: "https://cheapkeyz.store/group/getseliware" },
+      { name: "Solarkeys", price: "$10 USD/Month", methods: "Crypto, CashApp", url: "https://solarkeys.mysellauth.com/" },
+      { name: "Haise", price: "$10 USD/Month", methods: "Crypto, Card", url: "https://haisecheat.sellhub.cx/product/Seliware/" },
+      { name: "Shyun", price: "250,000 ₫/Month", methods: "See site", url: "https://shyun.shop/category/seliware-detected---use-risk" }
     ];
 
     function shuffle(array) {
@@ -82,7 +91,7 @@
         const div = document.createElement("div");
         div.className = "reseller";
         div.innerHTML = `
-          <h3><a href="https://example.com" target="_blank">${r.name}</a></h3>
+          <h3><a href="${r.url}" target="_blank">${r.name}</a></h3>
           <p>Price: ${r.price}</p>
           <p>Payment Methods: ${r.methods}</p>
         `;
@@ -94,4 +103,5 @@
   </script>
 </body>
 </html>
+
 
