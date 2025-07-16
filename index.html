@@ -2,71 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bitdancer Shop</title>
+  <title>Seliware Resellers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow: hidden;
-    }
-
     body {
-      background: url('https://cdn.discordapp.com/attachments/1359175285462929698/1394833375407247391/bitdancerlogo.jpg?ex=68783f4f&is=6876edcf&hm=60cba7ea02dda4d9891ee922a19617b235329b17f9c7c5617b5df42dbfef24c0') no-repeat center center/cover;
-      position: relative;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      padding: 2rem;
+      margin: 0;
     }
-
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(10px);
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 0;
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
     }
-
-    .center-content {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    .start-button {
-      padding: 16px 32px;
-      font-size: 1.25rem;
-      background: #ffffff22;
-      color: white;
-      border: 2px solid white;
+    .reseller {
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 12px;
-      backdrop-filter: blur(5px);
-      cursor: pointer;
-      transition: all 0.3s ease;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #00d2ff;
     }
-
-    .start-button:hover {
-      background: white;
-      color: #111;
+    .reseller h3 {
+      margin: 0 0 0.5rem 0;
+    }
+    .reseller a {
+      color: #00d2ff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .reseller a:hover {
+      color: #66fcf1;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1rem;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
-  <div class="center-content">
-    <button class="start-button" onclick="window.location.href='https://cheapkeyz.store/group/getseliware'">
-      Click to Start Shopping
-    </button>
+  <h1>Seliware Resellers</h1>
+  <div id="reseller-container"></div>
+  <div class="footer">
+    After purchasing a seliware key, you can redeem it at <strong>bitdancer.pro</strong> or <strong>seliware.com</strong>.
   </div>
+
+  <script>
+    const resellers = [
+      { name: "Daniska111/Kamlin via Funpay", price: "$14.74 USD / €12.75 per Month", methods: "Card" },
+      { name: "Vivianware", price: "$10 USD/Month", methods: "Credit & Debit Card, CS2 Skins, TF2 Keys, Giftcard, Paysafecard, Crypto, Stripe (+$1), PayPal, Vietnam Payment" },
+      { name: "infinitycheats", price: "$10 USD/Month", methods: "Credit & Debit Card, PayPal, Crypto" },
+      { name: "thunderkeys", price: "$10 USD/Month or $4 USD/Week", methods: "Debit & Credit Card, Cash App, Google Pay, Apple Pay, Link, Paypal, Crypto" },
+      { name: "CheapKeys.cc", price: "$10 USD/Month or $4 USD/Week", methods: "Crypto, Credit/Debit Card, PayPal, CashApp, Venmo, Rewards (100 pts = $1 USD)" },
+      { name: "Wyv.gg", price: "$10 USD/Month", methods: "Credit & Debit Card, Google Pay, PayPal, Crypto" },
+      { name: "RobloxCheatz", price: "$10 USD/Month", methods: "Credit & Debit Card, Robux, Crypto, Funpay" },
+      { name: "Turbokeyz", price: "$10 USD/Month or $4 USD/Week", methods: "Paypal, CashApp, Venmo" },
+      { name: "yukstore", price: "250,000 ₫/Month or 100,000 ₫/Week", methods: "Momo, Card VN, Mbbank, Thesieure, Crypto" },
+      { name: "Expresskeys", price: "$10 USD/Month or $3.99 USD/Week", methods: "Credit & Debit Card, PayPal, CashApp, Crypto, Robux" },
+      { name: "CheapKeyz", price: "$10 USD/Month or $4 USD/Week", methods: "Crypto, Credit and Debit card, PayPal" },
+      { name: "Solarkeys", price: "$10 USD/Month or $4 USD/Week", methods: "Credit & Debit Card, PayPal, Crypto, CashApp, Robux" },
+      { name: "Haise", price: "$10 USD/Month or $4 USD/Week", methods: "Crypto, Credit and Debit card" },
+      { name: "Shyun", price: "250,000 ₫/Month or 100,000 ₫/Week", methods: "Open shop for more info" }
+    ];
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function renderResellers() {
+      const container = document.getElementById("reseller-container");
+      shuffle(resellers);
+      resellers.forEach(r => {
+        const div = document.createElement("div");
+        div.className = "reseller";
+        div.innerHTML = `
+          <h3><a href="https://example.com" target="_blank">${r.name}</a></h3>
+          <p>Price: ${r.price}</p>
+          <p>Payment Methods: ${r.methods}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    renderResellers();
+  </script>
 </body>
 </html>
+
