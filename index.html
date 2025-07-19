@@ -173,35 +173,51 @@
   </footer>
 
   <script>
-    async function fetchTracker() {
-      const el = document.getElementById('seliware-status');
-      try {
-        const [robloxRes, seliRes] = await Promise.all([
-          fetch('https://api.weao.xyz/versions/current'),
-          fetch('https://api.weao.xyz/status/exploits/seliware')
-        ]);
-        const roblox = await robloxRes.json();
-        const seli = await seliRes.json();
+  async function fetchTracker() {
+    const el = document.getElementById('seliware-status');
+    el.innerHTML = 'Checking Seliware status...';
 
-        if (roblox.status !== 'success' || seli.status !== 'success') {
-          throw new Error('bad status');
-        }
+    try {
+      const headers = {
+        'User-Agent': 'BitdancerShop/1.0 (Contact: your-email@example.com)',
+        'Accept': 'application/json'
+      };
 
-        const rVer = roblox.data.version;
-        const sVer = seli.data.version;
+      const [robloxRes, seliRes] = await Promise.all([
+        fetch('https://api.weao.xyz/versions/current', { headers }).then(res => {
+          if (!res.ok) throw new Error(`Roblox API error: ${res.status}`);
+          return res.json();
+        }),
+        fetch('https://api.weao.xyz/status/exploits/seliware', { headers }).then(res => {
+          if (!res.ok) throw new Error(`Seliware API error: ${res.status}`);
+          return res.json();
+        })
+      ]);
 
-        if (rVer === sVer) {
-          el.innerHTML = `<strong style="color: lime;">✅ Seliware is up-to-date (v${sVer})</strong>`;
-        } else {
-          el.innerHTML = `<strong style="color: orange;">⚠️ Seliware is outdated (v${sVer})</strong><br><span style="color: #ccc;">Latest Roblox version: ${rVer}</span>`;
-        }
-      } catch (e) {
-        el.innerHTML = `<span style="color: red;">❌ Error retrieving update status</span>`;
+      // Validate response structure
+      if (!robloxRes?.data?.version || !seliRes?.data?.version) {
+        throw new Error('Invalid API response structure');
       }
-    }
 
-    fetchTracker();
-    setInterval(fetchTracker, 60000); // Refresh every 60s
-  </script>
+      const rVer = robloxRes.data.version;
+      const sVer = seliRes.data.version;
+
+      if (rVer === sVer) {
+        el.innerHTML = `<strong style="color: lime;">✅ Seliware is up-to-date (v${sVer})</strong>`;
+      } else {
+        el.innerHTML = `<strong style="color: orange;">⚠️ Seliware is outdated (v${sVer})</strong><br><span style="color: #ccc;">Latest Roblox version: ${rVer}</span>`;
+      }
+    } catch (e) {
+      console.error('Tracker error:', e.message);
+      el.innerHTML = `<span style="color: red;">❌ Error retrieving update status: ${e.message}</span>`;
+    }
+  }
+
+  // Initial call
+  fetchTracker();
+  // Refresh every 60 seconds
+  setInterval(fetchTracker, 60000);
+</script>
+  
 </body>
 </html>
