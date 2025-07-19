@@ -9,11 +9,14 @@
   <meta property="og:image" content="https://cdn.discordapp.com/attachments/1017109458343702548/1396190501702471882/bitdancerlogo.jpg?ex=687d2f3b&is=687bddbb&hm=27277ad057d4bc737c545a842c60e77becaa337592f771c14e826b0e781e8b16&" />
   <meta property="og:description" content="Secure access to Seliware - weekly or monthly, starting at just $4.26." />
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;overflow-y:auto;background:#000}body{background:url('https://cdn.discordapp.com/attachments/1017109458343702548/1396190501702471882/bitdancerlogo.jpg?ex=687d2f3b&is=687bddbb&hm=27277ad057d4bc737c545a842c60e77becaa337592f771c14e826b0e781e8b16&') no-repeat center center/cover;position:relative}body::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;backdrop-filter:blur(10px);background-color:rgba(0,0,0,0.5);z-index:0}.center-content{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px 100px;text-align:center}.logo{width:120px;margin-bottom:20px}.title{font-size:2rem;color:#fff;margin-bottom:10px}.subtitle{font-size:1rem;color:#ccc;margin-bottom:15px}#seliware-status{margin-bottom:30px;font-size:1rem;color:#fff}.products{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:900px;margin-bottom:30px}.product-card{background:rgba(255,255,255,0.1);padding:20px;border-radius:10px;width:220px;color:#fff;backdrop-filter:blur(5px);transition:background 0.3s,transform 0.2s;cursor:pointer;text-decoration:none}.product-card:hover{background:rgba(255,255,255,0.2);transform:translateY(-4px)}.product-card h3{margin-bottom:10px;font-size:1.2rem}.product-card p{font-size:1rem}.discord-button{margin-top:10px;padding:12px 24px;font-size:1rem;background:#5865F2;color:#fff;border:none;border-radius:8px;cursor:pointer;transition:background 0.3s;text-decoration:none;display:inline-block}.discord-button:hover{background:#4752c4}footer{position:relative;bottom:0;width:100%;text-align:center;padding:20px 0;color:#fff;font-size:0.9rem;z-index:2}@media (max-width:600px){.products{flex-direction:column;align-items:center}}
+    *{margin:0;padding:0;box-sizing:border-box}html,body{height:100%;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;overflow-y:auto;background:#000}body{background:url('https://cdn.discordapp.com/attachments/1017109458343702548/1396190501702471882/bitdancerlogo.jpg?ex=687d2f3b&is=687bddbb&hm=27277ad057d4bc737c545a842c60e77becaa337592f771c14e826b0e781e8b16&') no-repeat center center/cover;background-attachment:fixed;position:relative}body::before{content:'';position:fixed;top:0;left:0;width:100%;min-height:100%;bottom:0;backdrop-filter:blur(10px);background-color:rgba(0,0,0,0.5);z-index:0}.center-content{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px 100px;text-align:center}.logo{width:120px;margin-bottom:20px}.title{font-size:2rem;color:#fff;margin-bottom:10px}.subtitle{font-size:1rem;color:#ccc;margin-bottom:15px}#seliware-status{margin-bottom:30px;font-size:1rem;color:#fff}.products{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:900px;margin-bottom:30px}.product-card{background:rgba(255,255,255,0.1);padding:20px;border-radius:10px;width:220px;color:#fff;backdrop-filter:blur(5px);transition:background 0.3s,transform 0.2s;cursor:pointer;text-decoration:none}.product-card:hover{background:rgba(255,255,255,0.2);transform:translateY(-4px)}.product-card h3{margin-bottom:10px;font-size:1.2rem}.product-card p{font-size:1rem}.discord-button{margin-top:10px;padding:12px 24px;font-size:1rem;background:#5865F2;color:#fff;border:none;border-radius:8px;cursor:pointer;transition:background 0.3s;text-decoration:none;display:inline-block}.discord-button:hover{background:#4752c4}footer{position:relative;bottom:0;width:100%;text-align:center;padding:20px 0;color:#fff;font-size:0.9rem;z-index:2}.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:flex;justify-content:center;align-items:center;z-index:10}.overlay button{background:#5865F2;color:#fff;padding:15px 30px;font-size:1.2rem;border:none;border-radius:8px;cursor:pointer;transition:background 0.3s}.overlay button:hover{background:#4752c4}@media (max-width:600px){.products{flex-direction:column;align-items:center}}
   </style>
 </head>
 <body>
-  <div class="center-content">
+  <div class="overlay" id="overlay">
+    <button onclick="enterSite()">Click to enter</button>
+  </div>
+  <div class="center-content" id="main-content" style="display:none">
     <img src="https://cdn.discordapp.com/attachments/1017109458343702548/1396210237777641604/NTNnoBG.png?ex=687d419d&is=687bf01d&hm=c864fc181736512b6be021839b779eb602433741e4f717e0940b0804bbebaea0&" alt="Bitdancer Logo" class="logo" />
     <h1 class="title">Buy Seliware Access</h1>
     <p class="subtitle">Weekly and monthly keys delivered instantly.</p>
@@ -33,6 +36,7 @@
   <footer>
     © 2025 Bitdancer Shop
   </footer>
+  <audio id="entry-audio" src="https://dl.dropboxusercontent.com/scl/fi/4zo17hwnmuprp997b768q/videoplayback-1.m4a?rlkey=n31vjux7z9nyczhp2iuye8io9&st=iv5zuqsk"></audio>
   <script>
     async function fetchTracker() {
       const el = document.getElementById('seliware-status');
@@ -69,8 +73,13 @@
         el.innerHTML = `<span style="color: red;">❌ Unable to retrieve status</span>`;
       }
     }
-    fetchTracker();
-    setInterval(fetchTracker, 300000);
+    function enterSite() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('main-content').style.display = 'flex';
+      document.getElementById('entry-audio').play().catch(() => {});
+      fetchTracker();
+      setInterval(fetchTracker, 300000);
+    }
   </script>
 </body>
 </html>
