@@ -2,106 +2,206 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Seliware Resellers</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bitdancer Shop</title>
+  <meta name="description" content="Buy Seliware access from Bitdancer Shop – Weekly or Monthly Plans.">
+  <meta property="og:title" content="Bitdancer Shop" />
+  <meta property="og:image" content="https://cdn.discordapp.com/attachments/1017109458343702548/1396190501702471882/bitdancerlogo.jpg?ex=687d2f3b&is=687bddbb&hm=27277ad057d4bc737c545a842c60e77becaa337592f771c14e826b0e781e8b16&" />
+  <meta property="og:description" content="Secure access to Seliware - weekly or monthly, starting at just $4.26." />
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: #ffffff;
-      padding: 2rem;
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    h1 {
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-y: auto;
+      background: #000;
+    }
+
+    body {
+      background: url('https://cdn.discordapp.com/attachments/1017109458343702548/1396190501702471882/bitdancerlogo.jpg?ex=687d2f3b&is=687bddbb&hm=27277ad057d4bc737c545a842c60e77becaa337592f771c14e826b0e781e8b16&') no-repeat center center/cover;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .center-content {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px 100px;
       text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
     }
-    .reseller {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid #00d2ff;
+
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
     }
-    .reseller h3 {
-      margin: 0 0 0.5rem 0;
+
+    .title {
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 10px;
     }
-    .reseller a {
-      color: #00d2ff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .reseller a:hover {
-      color: #66fcf1;
-    }
-    .footer {
-      text-align: center;
-      margin-top: 2rem;
+
+    .subtitle {
       font-size: 1rem;
-      opacity: 0.8;
+      color: #ccc;
+      margin-bottom: 15px;
     }
-    .footer a {
-      color: #00d2ff;
+
+    #seliware-status {
+      margin-bottom: 30px;
+      font-size: 1rem;
+      color: white;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 900px;
+      margin-bottom: 30px;
+    }
+
+    .product-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 220px;
+      color: white;
+      backdrop-filter: blur(5px);
+      transition: background 0.3s, transform 0.2s;
+      cursor: pointer;
       text-decoration: none;
     }
-    .footer a:hover {
-      color: #66fcf1;
+
+    .product-card:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .product-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .product-card p {
+      font-size: 1rem;
+    }
+
+    .discord-button {
+      margin-top: 10px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      background: #5865F2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .discord-button:hover {
+      background: #4752c4;
+    }
+
+    footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 20px 0;
+      color: white;
+      font-size: 0.9rem;
+      z-index: 2;
+    }
+
+    @media (max-width: 600px) {
+      .products {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Seliware Resellers</h1>
-  <div id="reseller-container"></div>
-  <div class="footer">
-    After purchasing a seliware key, you can redeem it at 
-    <a href="https://bitdancer.pro" target="_blank">bitdancer.pro</a> or 
-    <a href="https://seliware.com" target="_blank">seliware.com</a>.
+  <div class="center-content">
+    <img src="https://cdn.discordapp.com/attachments/1017109458343702548/1396190501702471882/bitdancerlogo.jpg?ex=687d2f3b&is=687bddbb&hm=27277ad057d4bc737c545a842c60e77becaa337592f771c14e826b0e781e8b16&" alt="Bitdancer Logo" class="logo" />
+    
+    <h1 class="title">Buy Seliware Access</h1>
+    <p class="subtitle">Weekly and monthly keys delivered instantly.</p>
+    <div id="seliware-status">Loading version info...</div>
+
+    <div class="products">
+      <a class="product-card" href="https://cheapkeyz.store/group/getseliware?p=seliware7d">
+        <h3>Seliware - 7 Days</h3>
+        <p>$4.26 / week</p>
+      </a>
+      <a class="product-card" href="https://cheapkeyz.store/group/getseliware?p=seli30d">
+        <h3>Seliware - 30 Days</h3>
+        <p>$9.90 / month</p>
+      </a>
+    </div>
+
+    <a class="discord-button" href="https://discord.gg/YOURSERVER" target="_blank">Join Our Discord</a>
   </div>
 
-  <script>
-    const resellers = [
-      { name: "Daniska111/Kamlin via Funpay", price: "$14.74 USD / €12.75 per Month", methods: "Card", url: "https://funpay.com/en/lots/offer?id=32977828" },
-      { name: "Vivianware", price: "$10 USD/Month", methods: "Multiple methods", url: "https://vivianware.com/product/seliware-roblox/" },
-      { name: "infinitycheats", price: "$10 USD/Month", methods: "Credit & Debit Card, PayPal, Crypto", url: "https://infinitycheats.gg/" },
-      { name: "thunderkeys", price: "$10 USD/Month or $4 USD/Week", methods: "Many methods", url: "https://thunderkeys.mysellauth.com/" },
-      { name: "CheapKeys.cc", price: "$10 USD/Month", methods: "Crypto, PayPal", url: "https://cheapkeys.cc/products" },
-      { name: "Wyv.gg", price: "$10 USD/Month", methods: "Card, Google Pay, PayPal", url: "https://wyv.gg/product/seliware-executor/" },
-      { name: "RobloxCheatz", price: "$10 USD/Month", methods: "Robux, Funpay", url: "https://robloxcheatz.com/product/d7a3d96a-2497-43e5-b8b0-c4046a63b0da" },
-      { name: "Turbokeyz", price: "$10 USD/Month", methods: "Paypal, CashApp", url: "https://turbokeyz.shop/product/seliware" },
-      { name: "yukstore", price: "250,000 ₫/Month", methods: "VN payments", url: "https://yukstore.com/" },
-      { name: "Expresskeys", price: "$10 USD/Month", methods: "PayPal, Robux", url: "https://expresskeys.store/" },
-      { name: "CheapKeyz", price: "$10 USD/Month", methods: "Crypto, Card, PayPal", url: "https://cheapkeyz.store/group/getseliware" },
-      { name: "Solarkeys", price: "$10 USD/Month", methods: "Crypto, CashApp", url: "https://solarkeys.mysellauth.com/" },
-      { name: "Haise", price: "$10 USD/Month", methods: "Crypto, Card", url: "https://haisecheat.sellhub.cx/product/Seliware/" },
-      { name: "Shyun", price: "250,000 ₫/Month", methods: "See site", url: "https://shyun.shop/category/seliware-detected---use-risk" }
-    ];
+  <footer>
+    © 2025 Bitdancer Shop
+  </footer>
 
-    function shuffle(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+  <script>
+    async function fetchTracker() {
+      const el = document.getElementById('seliware-status');
+      try {
+        const [robloxRes, seliRes] = await Promise.all([
+          fetch('https://api.weao.xyz/versions/current'),
+          fetch('https://api.weao.xyz/status/exploits/seliware')
+        ]);
+        const roblox = await robloxRes.json();
+        const seli = await seliRes.json();
+
+        if (roblox.status !== 'success' || seli.status !== 'success') {
+          throw new Error('bad status');
+        }
+
+        const rVer = roblox.data.version;
+        const sVer = seli.data.version;
+
+        if (rVer === sVer) {
+          el.innerHTML = `<strong style="color: lime;">✅ Seliware is up-to-date (v${sVer})</strong>`;
+        } else {
+          el.innerHTML = `<strong style="color: orange;">⚠️ Seliware is outdated (v${sVer})</strong><br><span style="color: #ccc;">Latest Roblox version: ${rVer}</span>`;
+        }
+      } catch (e) {
+        el.innerHTML = `<span style="color: red;">❌ Error retrieving update status</span>`;
       }
     }
 
-    function renderResellers() {
-      const container = document.getElementById("reseller-container");
-      shuffle(resellers);
-      resellers.forEach(r => {
-        const div = document.createElement("div");
-        div.className = "reseller";
-        div.innerHTML = `
-          <h3><a href="${r.url}" target="_blank">${r.name}</a></h3>
-          <p>Price: ${r.price}</p>
-          <p>Payment Methods: ${r.methods}</p>
-        `;
-        container.appendChild(div);
-      });
-    }
-
-    renderResellers();
+    fetchTracker();
+    setInterval(fetchTracker, 60000); // Refresh every 60s
   </script>
 </body>
 </html>
-
-
