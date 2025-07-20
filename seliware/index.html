@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Seliware: A powerful Roblox executor with a clean UI, fast updates, and trusted by thousands. Available at Bitdancer Shop."/>
+  <meta name="keywords" content="Seliware, Roblox executor, Bitdancer Shop, Roblox scripts, gaming tools"/>
+  <title>Seliware Presentation – Bitdancer Shop</title>
+  <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1017109458343702548/1396190501702471882/bitdancerlogo.jpg?ex=687d2f3b&is=687bddbb&hm=27277ad057d4bc737c545a842c60e77becaa337592f771c14e826b0e781e8b16&"/>
+  <link rel="preload" as="image" href="https://seliware.wiki/images/seliware_executor.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="https://cdn.discordapp.com/attachments/803700947733839912/1396536767213076510/SELIWAREV2.jpg?ex=687e71b7&is=687d2037&hm=ccb8531e8a75a94b9d59d90d756b6b045380850c138606a2409586267866670c&" fetchpriority="high"/>
+  <style>
+    body{margin:0;font-family:'Segoe UI',sans-serif;background:#0a0a0a;color:#f0f0f0;scroll-behavior:smooth}
+    #progress-bar{position:fixed;top:0;left:0;width:0;height:5px;background:#4aa3ff;z-index:1000}
+    nav{position:sticky;top:0;background:#080808;padding:15px;text-align:center;z-index:100}
+    nav a{color:#4aa3ff;text-decoration:none;margin:0 15px;font-size:1rem;transition:color .3s ease}
+    nav a:hover{color:#2a8ce7}
+    section{min-height:100vh;padding:80px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#0a0a0a;opacity:0;transform:translateY(20px);transition:opacity .6s ease-out,transform .6s ease-out}
+    section.visible{opacity:1;transform:translateY(0)}
+    .logo{width:150px;margin-bottom:40px;opacity:0;transition:opacity .8s ease-out}
+    .logo.visible{opacity:1}
+    h1{font-size:3rem;margin-bottom:20px;color:#4aa3ff}
+    p{font-size:1.2rem;max-width:800px;color:#ccc;margin-bottom:20px}
+    ul{list-style:none;padding:0;font-size:1.1rem;color:#ccc;margin-bottom:20px}
+    .image-showcase img{width:90%;max-width:1000px;border-radius:12px;box-shadow:0 10px 30px rgba(0,123,255,.3);margin-top:40px;opacity:0;transition:opacity .8s ease-out}
+    .image-showcase img.visible{opacity:1}
+    .faq{max-width:800px;margin-top:40px;text-align:left}
+    .faq-item{margin-bottom:24px;border-left:3px solid #4aa3ff;padding-left:16px;opacity:0;transform:translateX(-20px);transition:opacity .6s ease-out,transform .6s ease-out}
+    .faq-item.visible{opacity:1;transform:translateX(0)}
+    .faq-item h3{font-size:1.2rem;color:#4aa3ff;margin-bottom:6px}
+    .faq-item p{font-size:1rem;color:#ccc}
+    footer{padding:30px;background:#080808;color:#777;font-size:.9rem;text-align:center}
+    a.button,a.back-to-top{background:#4aa3ff;color:white;padding:12px 28px;border-radius:10px;text-decoration:none;margin-top:20px;transition:background .3s ease;cursor:pointer}
+    a.button:hover,a.back-to-top:hover{background:#2a8ce7}
+    a.scroll-text{color:#4aa3ff;text-decoration:none;margin-top:20px;font-size:1.1rem;display:flex;align-items:center;gap:8px;animation:bounce 2s infinite;transition:color .3s ease}
+    a.scroll-text:hover{color:#2a8ce7}
+    a.scroll-text::after{content:'↓';font-size:1.2rem}
+    @keyframes bounce{0%,20%,50%,80%,100%{transform:translateY(0)}40%{transform:translateY(10px)}60%{transform:translateY(5px)}}
+    #discord-widget{position:fixed;bottom:20px;right:20px;background:#4aa3ff;color:white;padding:10px 20px;border-radius:50px;cursor:pointer;z-index:1000;text-decoration:none;display:inline-block}
+    #discord-widget:hover{background:#2a8ce7}
+    @media(max-width:768px){h1{font-size:2rem}p{font-size:1rem}.logo{width:120px}.image-showcase img{width:100%}}
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="#hero">Home</a>
+    <a href="#showcase">Features</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://cheapkeyz.store/group/getseliware">Shop</a>
+    <a href="https://bitdancer.shop">Download</a>
+  </nav>
+  <section id="hero" role="region" aria-label="Introduction">
+    <img src="https://cdn.discordapp.com/attachments/803700947733839912/1396536767213076510/SELIWAREV2.jpg?ex=687e71b7&is=687d2037&hm=ccb8531e8a75a94b9d59d90d756b6b045380850c138606a2409586267866670c&" alt="Seliware Logo" class="logo" fetchpriority="high"/>
+    <h1>Introducing Seliware</h1>
+    <p>Powerful, fast, and modern — Seliware is a high-end Roblox executor trusted by thousands.</p>
+    <ul>
+      <li>✔ No crashes, 99.9% uptime</li>
+      <li>✔ Supports all Roblox scripts</li>
+      <li>✔ Instant updates post-Roblox patches</li>
+    </ul>
+    <a href="/purchase" class="button">Get Seliware Now</a>
+    <a href="#showcase" class="scroll-text">Scroll Down</a>
+  </section>
+  <section id="showcase" class="image-showcase">
+    <h1>Clean & Modern UI</h1>
+    <p>Take a look at Seliware’s interface. Focused on simplicity and usability for both beginner and advanced users.</p>
+    <img src="https://seliware.wiki/images/seliware_executor.png" alt="Seliware executor interface showcasing script execution and settings" fetchpriority="high"/>
+  </section>
+  <section id="faq" role="region" aria-label="Frequently Asked Questions">
+    <h1>Frequently Asked Questions</h1>
+    <div class="faq">
+      <div class="faq-item">
+        <h3>Is Seliware safe to use?</h3>
+        <p>Yes, Seliware is widely used and trusted. Always download from official sources like Bitdancer Shop.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I get my key?</h3>
+        <p>After purchase, you'll be redirected to your key or receive it via email/Discord instantly.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How often is Seliware updated?</h3>
+        <p>Seliware is usually updated within hours after a Roblox patch. You can track update status live.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does Seliware work on all devices?</h3>
+        <p>Seliware is made for Windows 10/11 with Mac support in development.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if I need help with setup?</h3>
+        <p>Our 24/7 Discord support team is ready to assist with installation and usage.</p>
+      </div>
+    </div>
+    <a href="#hero" class="back-to-top">Back to Top</a>
+  </section>
+  <footer>
+    <p>© 2025 Bitdancer Shop – All rights reserved.</p>
+    <div style="margin-top:10px">
+      <a href="https://discord.gg/Xy8NxknEbZ" style="color:#4aa3ff;margin:0 10px">Join our Discord</a>
+    </div>
+  </footer>
+  <a id="discord-widget" href="https://discord.gg/Xy8NxknEbZ" target="_blank">Join our Discord</a>
+  <script>
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting?e.target.classList.add('visible'):e.target.classList.remove('visible')})},{root:null,threshold:.1});
+    document.querySelectorAll('section,.faq-item,.logo,.image-showcase img').forEach(e=>observer.observe(e));
+    window.addEventListener('load',()=>window.scrollTo({top:100,behavior:'smooth'}));
+    window.addEventListener('scroll',()=>{const e=document.documentElement.scrollTop,o=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('progress-bar').style.width=e/o*100+'%'});
+  </script>
+</body>
+</html>
